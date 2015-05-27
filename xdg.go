@@ -20,7 +20,7 @@ const (
 )
 
 var (
-	// ErrRuntimeDirNotSet is returned by RuntimeDir() if the XDG_RUNTIME_DIR environment
+	// ErrRuntimeDirNotSet is returned by RuntimeDir if the XDG_RUNTIME_DIR environment
 	// variable is not set.
 	// Applications should fall back to a replacement directory with similar
 	// capabilities and print a warning message.
@@ -81,14 +81,14 @@ func DataHome() string {
 }
 
 // DataDirs defines the preference-ordered set of base directories to search for
-// data files in addition to the DataHome()
+// data files in addition to the DataHome
 //
 // The order of base directories denotes their importance;
 // the first directory listed is the most important. When the same information
 // is defined in multiple places the information defined relative to the more
 // important base directory takes precedent.
 // The base directory defined by DataHome is considered more important than any
-// of the base directories defined by DataDirs().
+// of the base directories defined by DataDirs.
 func DataDirs() []string {
 	if os.Getenv(envDataDirs) != "" {
 		return strings.Split(os.Getenv(envDataDirs), ":")
@@ -106,14 +106,14 @@ func ConfigHome() string {
 }
 
 // ConfigDirs defines the preference-ordered set of base directories to search
-// for configuration files in addition to the ConfigHome()
+// for configuration files in addition to the ConfigHome
 //
 // The order of base directories denotes their importance;
 // the first directory listed is the most important. When the same information
 // is defined in multiple places the information defined relative to the more
 // important base directory takes precedent.
-// The base directory defined by ConfigHome() is considered more important than
-// any of the base directories defined by ConfigDirs().
+// The base directory defined by ConfigHome is considered more important than
+// any of the base directories defined by ConfigDirs.
 func ConfigDirs() []string {
 	if os.Getenv(envConfigDirs) != "" {
 		return strings.Split(os.Getenv(envConfigDirs), ":")
